@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  annotations:
+    meta.helm.sh/release-name: ingress-nginx
+    meta.helm.sh/release-namespace: ingress-nginx
+    ingressclass.kubernetes.io/is-default-class: "true"
+  creationTimestamp: "2022-05-12T18:06:39Z"
+  generation: 1
+  labels:
+    app.kubernetes.io/component: controller
+    app.kubernetes.io/instance: ingress-nginx
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: ingress-nginx
+    app.kubernetes.io/part-of: ingress-nginx
+    app.kubernetes.io/version: 1.2.0
+    helm.sh/chart: ingress-nginx-4.1.1
+  name: nginx
+  resourceVersion: "3263"
+  uid: c0ee9451-1af0-4378-82a5-0630a7f687a7
+spec:
+  controller: k8s.io/ingress-nginx

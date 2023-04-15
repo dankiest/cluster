@@ -1,0 +1,368 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-0
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol0
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-1
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol1
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-2
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol2
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-3
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol3
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-4
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol4
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-5
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol5
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-6
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol6
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-7
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol7
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-8
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol8
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-9
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol9
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-10
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol10
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-11
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol11
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-12
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol12
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-13
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol13
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-14
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol14
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+   name: minio-pv-15
+spec:
+   capacity:
+      storage: 300Gi
+   volumeMode: Filesystem
+   accessModes:
+   - ReadWriteOnce
+   persistentVolumeReclaimPolicy: Retain
+   storageClassName: minio-local-storage
+   local:
+      path: /home/volumes/minio/vol15
+   nodeAffinity:
+      required:
+         nodeSelectorTerms:
+         - matchExpressions:
+            - key: kubernetes.io/hostname
+              operator: In
+              values:
+                - okd-storage
+---

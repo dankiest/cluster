@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: colacao
+  namespace: default
+  annotations:
+   nginx.ingress.kubernetes.io/app-root: /colacao/
+spec:
+  rules:
+  - host: colacao-dev.unifor.br
+    http:
+      paths:
+      - backend:
+          service:
+            name: colacao
+            port:
+              number: 3000
+        path: /
+        pathType: Prefix

@@ -1,0 +1,87 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: apicurio-studio-api
+  namespace: apicurio
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  labels:
+    module: apicurio-studio-api
+spec:
+  rules:
+  - host: apicurio-dev.unifor.br
+    http:
+      paths:
+      - backend:
+          service:
+            name: "apicurio-studio-api"
+            port:
+              number: 8091
+        path: /studio-api/?(.*)
+        pathType: Prefix
+  tls:
+  - hosts:
+    - apicurio-dev.unifor.br
+    secretName: certificadounifor
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: apicurio-studio-ui
+  namespace: apicurio
+  labels:
+    module: apicurio-studio-ui
+spec:
+  rules:
+  - host: apicurio-dev.unifor.br
+    http:
+      paths:
+      - backend:
+          service:
+            name: "apicurio-studio-ui"
+            port:
+              number: 8093
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - apicurio-dev.unifor.br
+    secretName: certificadounifor
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: apicurio-studio-ws
+  namespace: apicurio
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
+    nginx.ingress.kubernetes.io/server-snippets: |
+     location / {
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_http_version 1.1;
+      proxy_set_header X-Forwarded-Host $http_host;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_set_header X-Forwarded-For $remote_addr;
+      proxy_set_header Host $host;
+      proxy_set_header Connection "upgrade";
+      proxy_cache_bypass $http_upgrade;
+      }
+  labels:
+    module: apicurio-studio-ws
+spec:
+  rules:
+  - host: apicurio-dev.unifor.br
+    http:
+      paths:
+      - backend:
+          service:
+            name: "apicurio-studio-ws"
+            port:
+              number: 8092
+        path: /designs
+        pathType: Prefix
+  tls:
+  - hosts:
+    - apicurio-dev.unifor.br
+    secretName: certificadounifor

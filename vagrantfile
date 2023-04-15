@@ -1,0 +1,67 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+
+    # config.trigger.before :up do |trigger|
+    #     trigger.info = "Creating 'NATSwitch' Hyper-V switch if it does not exist..."
+    
+    #     trigger.run = {privileged: "true", powershell_elevated_interactive: "true", path: "./scripts/create-nat-hyperv-switch.ps1"}
+    # end
+
+    # config.trigger.before :reload do |trigger|
+    #     trigger.info = "Setting Hyper-V switch to 'NATSwitch' to allow for static IP..."
+    
+    #     trigger.run = {privileged: "true", powershell_elevated_interactive: "true", path: "./scripts/set-hyperv-switch.ps1"}
+    # end
+
+    # config.vm.provision "shell", path: "./scripts/configure-static-ip.sh"
+    # config.vm.provision :reload
+
+    config.vm.box = "generic/ubuntu2004"
+    config.ssh.dsa_authentication = false
+    config.ssh.shell = "sh"
+    # config.vm.network "public_network", bridge: "switch1"
+    config.vm.provision :shell, path: "scripts/docker.sh"
+
+    #rancher
+    config.vm.define "rancher" do |x|
+        x.vm.hostname = "rancher"
+        x.vm.disk :disk, size: "12GB", primary: true
+        x.vm.provider "hyperv" do |v|
+            v.memory = 2048
+            v.cpus = 2
+        end
+    end
+
+    #Master
+    config.vm.define "master" do |x|
+        x.vm.hostname = "master"
+        x.vm.disk :disk, size: "12GB", primary: true
+        x.vm.provider "hyperv" do |v|
+            v.memory = 2048
+            v.cpus = 2
+        end
+    end
+
+    #Worker
+    config.vm.define "worker" do |x|
+        x.vm.hostname = "worker"
+        x.vm.disk :disk, size: "12GB", primary: true
+        x.vm.provider "hyperv" do |v|
+            v.memory = 2048
+            v.cpus = 2
+        end
+    end
+
+    #Metallb
+    config.vm.define "metallb" do |x|
+        x.vm.hostname = "metallb"
+        x.vm.disk :disk, size: "12GB", primary: true
+        x.vm.provider "hyperv" do |v|
+            v.memory = 2048
+            v.cpus = 2
+        end
+    end
+
+end
